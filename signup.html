@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trackwise </title>
+        <style>
+            .track img{
+            height: 50px;
+            margin-top: 15px;
+            margin-left: 15px;
+            filter: invert(100);
+            }
+            .box{
+            padding: 0%;
+            width: 500px;
+            height: 600px;
+            border: 2px solid white;
+            border-radius: 4px;
+            margin: 0 auto;
+            offset-position: 200px;
+            color: white;
+            text-align: left;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+            }
+            body{
+            background-color: rgb(26,26,26);
+            }
+            .inputs{
+            margin-left: 20px;
+            margin-top: 0px;
+            border: 4px;
+            color: white;
+            background-color: rgba(0,0,0,0);
+            border-width: 1px;
+            box-shadow: 0 0 0 0.5px white;
+            width: 250px;
+            
+            }
+            .names{
+            margin-left: 20px;
+            margin-bottom: 2px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .boxtwo{
+            margin-top: 50px;
+            margin-right: 200px;
+            }
+
+            .signone{
+            background-color: white;
+            border-radius: 20px;
+            padding-right: 8px;
+            padding-left: 8px;
+            padding-top: 3px;
+            padding-bottom: 5px;
+            border: none;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.5s;
+            position: absolute;
+            right: 160px;
+            bottom: 20px;
+            text-decoration: none;
+            color: black;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .signone:hover{
+            background-color: black;
+            border: 2px;
+            border-width: 2px;
+            border: white;
+            color: white;
+            cursor: pointer;
+            }
+            .signtwo{
+            background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+            background-size: 200%;
+            border-radius: 20px;
+            padding-right: 8px;
+            padding-left: 8px;
+            padding-top: 3px;
+            padding-bottom: 5px;
+            border: none;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.5s;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .signtwo:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            }
+            .create{
+            background-image: linear-gradient(to right, purple 0%, yellow  51%, purple  100%);
+            background-size: 200%;
+            border-radius: 20px;
+            padding-right: 8px;
+            padding-left: 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.5s;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: small;
+            }
+            .create:hover {
+            background-position: right center;
+            color: white;
+            text-decoration: none;
+            }
+            .rest{
+            visibility: hidden;
+            margin-left: 20px;
+            margin-bottom: 2px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .eleven{
+            visibility: hidden;
+            margin-left: 50px;
+            margin-top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="http://127.0.0.1:5500/main.html" class="track"> <img src="images/backbutton.png"></a>
+        <div class="box">
+            <div class="boxtwo">
+                <p class="names">First Name</p>
+                <input type="text" class="inputs" id="firstname">
+                <p class="names">Last Name</p>
+                <input type="text" class="inputs" id="lastname">
+                <p class="names">Email Adress</p>
+                <input type="text" class="inputs" id="email">
+                <p class="names">Password</p>
+                <input type="text" class="inputs" id="password">
+                <p class="names">Confirm Password</p>
+                <input type="text" class="inputs" id="passwordtwo">
+                <p class="rest" id="restrict">You can only Create one account</p>
+                <p id="eleventeen" class="eleven">Passwords do not match</p>
+                <a href="http://127.0.0.1:5500/signin.html" class="signone">Sign In</a>
+                <button class="signtwo" id="signtwo" onclick="downloadFile()">Create Account</button>
+            </div>
+        </div>
+        <script>
+            var accountCreated = false; // Variable to track if the account is created
+            function downloadFile() {
+                // Check if the account is already created
+                if (accountCreated) {
+                    // Account is already created, display a message
+                    var restrictMessage = document.getElementById("restrict");
+                    restrictMessage.style.visibility = "visible";
+                    return; // Exit the function and don't proceed with file download
+                }
+
+                // Get input elements by their ids
+                var variable1 = document.getElementById("firstname").value;
+                var variable2 = document.getElementById("lastname").value;
+                var variable3 = document.getElementById("email").value;
+                var variable4 = document.getElementById("password").value;
+                var variable5 = document.getElementById("passwordtwo").value;
+
+                // Store user input in local storage
+                localStorage.setItem("firstname", variable1);
+                localStorage.setItem("lastname", variable2);
+                localStorage.setItem("email", variable3);
+                localStorage.setItem("password", variable4);
+                localStorage.setItem("passwordtwo", variable5);
+
+                // Retrieve stored data from local storage
+                var storedEmail = localStorage.getItem("email");
+                var storedPassword = localStorage.getItem("password");
+                var storedPasswordTwo = localStorage.getItem("passwordtwo");
+
+                // Compare stored password with the confirmation password
+                if (storedPassword === storedPasswordTwo) {
+                    // Passwords match, make the error message invisible
+                    var tet = document.getElementById("eleventeen");
+                    tet.style.visibility = "hidden";
+                } else {
+                    // Passwords don't match, handle accordingly (you can display an error message, for example)
+                    var tet = document.getElementById("eleventeen");
+                    tet.style.visibility = "visible";
+                    return; // Exit the function and don't proceed with file download
+                }
+
+                var combinedText = variable1 + "\n" + variable2 + "\n" + variable3 + "\n" + variable4 + "\n" + variable5 + "\n" + storedEmail + "\n" + storedPassword;
+
+                // Create a Blob containing the combined text
+                var blob = new Blob([combinedText], { type: "text/plain;charset=utf-8" });
+
+                // Create a download link
+                var a = document.createElement("a");
+                a.href = URL.createObjectURL(blob);
+                a.download = "logindetails.txt";
+
+                // Append the anchor element to the body
+                document.body.appendChild(a);
+
+                // Programmatically trigger a click event to download the file
+                a.click();
+
+                // Remove the anchor element from the body
+                document.body.removeChild(a);
+
+                // Set the accountCreated variable to true after successfully creating the account
+                accountCreated = true;
+            }
+        </script>
+    </body>
+</html>

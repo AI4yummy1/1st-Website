@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <Head>
+    <title> Trackwise</title>
+    <style>
+    .logo{
+      margin-top:10px;
+      margin-left: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      }
+    body{
+      background-color: rgb(26, 26, 26 );
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .trackwise{
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(229, 229, 229,0);
+    border: none;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: large;
+    }
+    .Menu-button{
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(229, 229, 229,0);
+    border: none;
+    font-weight: bold;
+    margin-left: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: small;
+    }
+    .search{
+      background-color: rgba(229, 229, 229,0);
+      border: 2px;
+      border-color: rgba(255,255,255,100);
+      margin-left: 10px;
+    }
+    .signone{
+    background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%);
+    color: white;
+    background-size: 200% auto;
+    border-radius: 20px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: absolute;
+    right: 105px;
+    text-decoration: none;
+    }
+    .signone:hover{
+      background-position: right center;
+      color: #fff;
+      text-decoration: none;
+      border: 2px;
+      border-width: 2px;
+      border: white;
+      color: white;
+      cursor: pointer;
+    }
+    .signtwo{
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+    background-size: 200%;
+    border-radius: 20px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    }
+    .signtwo:hover {
+      background-position: right center;
+      color: #fff;
+      text-decoration: none;
+    }
+    .create{
+    background-image: linear-gradient(to right, purple 0%, orange  51%, purple  100%);
+    background-size: 200%;
+    border-radius: 20px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: small;
+    }
+    .create:hover {
+      background-position: right center;
+      color: white;
+      text-decoration: none;
+    }
+    .New{
+    background-image: linear-gradient(to right, purple 0%, orange  51%, purple  100%);
+    background-size: 200%;
+    border-radius: 20px;
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    text-decoration: none;
+    font-size: medium;
+    margin-top: 50px;
+    margin-left: 50px;
+    }
+    .newasset{
+    padding: 0%;
+    width: 1000px;
+    height: 600px;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: 0 auto;
+    offset-position: 200px;
+    color: white;
+    text-align: left;
+    margin-top: 50px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    .processor{
+    padding: 0%;
+    width: 800px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 60px;
+    margin: 0 auto;
+    offset-position: 200px;
+    color: white;
+    text-align: left;
+    margin-top: 10px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    </style>
+  </Head>
+  <body>
+    <div class="logo">
+    <a href="http://127.0.0.1:5500/main.html" class="trackwise">Trackwise</a>
+    <a href="http://127.0.0.1:5500/system.html" class="Menu-button">Main system </a>
+    <a href="http://127.0.0.1:5500/create.html" class="create">Create</a>
+    <a href="http://127.0.0.1:5500/signup.html" class="signtwo">Sign Up</a>
+    <a href="http://127.0.0.1:5500/signin.html" class="signone">Sign In</a>
+    <input class="search" type="text" placeholder="Search"> 
+  </div>
+    <button class="New" id="divElementtwo" onclick="showDiv()">Create New Document</button>
+    <div class="newasset" id="myDiv" style="display: none;">
+    <div class="processor"></div>
+
+    
+    
+      </div>
+    </body>
+    <script>
+      function showDiv() {
+          var divElement = document.getElementById("myDiv")
+          var buttonElement = document.getElementById("divElementtwo")
+          divElement.style.display = "block";
+          buttonElement.style.display = "none"
+      }
+    </script>
+</html>
